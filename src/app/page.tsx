@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import { ApiResponse, Product } from '@/types/product';
-import { HeartPulse } from 'lucide-react';
+import { HeartPulse, Package } from 'lucide-react';
 
 export default function Home() {
   const [featured, setFeatured] = useState<Product[]>([]);
@@ -14,7 +14,7 @@ export default function Home() {
     fetch('https://ecom-rest-topaz.vercel.app/products')
       .then((res) => res.json())
       .then((data: ApiResponse) => {
-        setFeatured(data);
+        setFeatured(data.value || data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -23,18 +23,19 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-24">
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex flex-col items-center mb-8">
-            <HeartPulse className="w-16 h-16 text-white mb-4" />
-            <h1 className="text-4xl font-bold">Welcome to <span className="text-white drop-shadow-lg">Precia</span></h1>
+          <div className="flex flex-col items-center mb-6">
+            <HeartPulse className="w-12 h-12 text-white mb-3" />
+            <h1 className="text-3xl md:text-4xl font-bold">Welcome to <span className="text-white drop-shadow-lg">Precia</span></h1>
           </div>
-          <p className="text-xl mb-12">Discover amazing products at great prices</p>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Premium medical equipment at competitive prices</p>
           <Link
             href="/products"
-            className="bg-white text-blue-600 px-12 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition"
+            className="bg-white text-blue-900 px-10 py-3 rounded-full text-lg font-bold hover:bg-gray-100 transition shadow-lg hover:shadow-xl inline-flex items-center space-x-2"
           >
-            Shop Now
+            <span>Shop Now</span>
+            <Package className="w-5 h-5" />
           </Link>
         </div>
       </section>

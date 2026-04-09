@@ -25,12 +25,14 @@ export default function Navbar() {
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             </div>
-            <div className="flex items-center space-x-1">
-              <Link href="/" className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                <Home className="w-5 h-5" />
+            <div className="flex items-center space-x-4">
+              <Link href="/" className="flex items-center space-x-2 px-3 py-2 text-white hover:bg-white/20 rounded-xl transition-all group">
+                <Home className="w-5 h-5 group-hover:scale-110" />
+                <span className="text-sm font-medium">Home</span>
               </Link>
-              <Link href="/products" className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                <Package className="w-5 h-5" />
+              <Link href="/products" className="flex items-center space-x-2 px-3 py-2 text-white hover:bg-white/20 rounded-xl transition-all group">
+                <Package className="w-5 h-5 group-hover:scale-110" />
+                <span className="text-sm font-medium">Products</span>
               </Link>
             </div>
             <Link href="/cart" className="relative p-2 hover:bg-gray-100 rounded-xl transition-all group" title="View Cart">

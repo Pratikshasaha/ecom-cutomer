@@ -14,7 +14,7 @@ export default function Home() {
     fetch('https://ecom-rest-topaz.vercel.app/products')
       .then((res) => res.json())
       .then((data: ApiResponse) => {
-        setFeatured(data.value || data);
+        setFeatured(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));

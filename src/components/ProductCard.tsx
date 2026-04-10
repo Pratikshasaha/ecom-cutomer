@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Product } from '@/types/product';
 import { useCartStore } from '@/stores/cartStore';
+import { useNotificationStore } from '@/stores/notificationStore';
 import { ShoppingCart } from 'lucide-react';
 
 interface ProductCardProps {
@@ -11,9 +12,15 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
+  const addNotification = useNotificationStore((state) => state.addNotification);
+
+  const handleAddToCart = () => {
+    addItem(product);
+    addNotification(`${product.name} has been added to your cart!`, 'success');
+  };
 
   return (
-    <div className="group bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden h-80 flex flex-col">
+    <div className="group bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
       <div className="relative flex-shrink-0 h-44 p-2">
         <Link href={`/products/${product.id}`} className="block w-full h-full">
           <img 
@@ -36,7 +43,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           </div>
           <button
-            onClick={() => addItem(product)}
+            onClick={handleAddToCart}
             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2.5 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 flex items-center justify-center space-x-2 shadow-md hover:shadow-lg hover:scale-[1.02]"
           >
             <ShoppingCart className="w-4 h-4" />

@@ -40,11 +40,11 @@ export default function CartItem({ item }: CartItemProps) {
         <div className="flex items-center space-x-4">
           <div>
             <p className="text-xs text-gray-500 mb-1">Price</p>
-            <p className="font-semibold text-green-600">${item.price.toFixed(2)}</p>
+            <p className="font-semibold text-green-600">₹{item.price.toFixed(2)}</p>
           </div>
           <div>
             <p className="text-xs text-gray-500 mb-1">Subtotal</p>
-            <p className="font-bold text-gray-900">${(item.price * item.quantity).toFixed(2)}</p>
+            <p className="font-bold text-gray-900">₹{(item.price * item.quantity).toFixed(2)}</p>
           </div>
           <div>
             <p className="text-xs text-gray-500 mb-1">Vendor</p>

@@ -101,7 +101,7 @@ export default function ProductDetail() {
                 {/* Price */}
                 <div className="mb-6 py-4 border-y-2 border-gray-200">
                   <p className="text-gray-600 text-sm mb-1">Price</p>
-                  <p className="text-4xl font-bold text-green-600">${product.price.toFixed(2)}</p>
+                  <p className="text-4xl font-bold text-green-600">₹{product.price.toFixed(2)}</p>
                 </div>
 
                 {/* Description */}

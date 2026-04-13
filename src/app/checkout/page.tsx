@@ -91,7 +91,8 @@ export default function CheckoutPage() {
           email: formData.email,
           paymentType: formData.paymentType,
           vendorName: item.vendorName || 'Unknown',
-          status: 'pending'
+          status: 'pending',
+          price: item.price,
         };
 
         const response = await fetch('https://ecom-rest-topaz.vercel.app/orders', {

@@ -51,12 +51,12 @@ export default function Home() {
             <div className="slide-inner">
               <div className="wrap">
                 <div className='sliderinnerbox'>
-                  <span className="slide-eyebrow" style={{ "color": "#91BFFF", "border-color": "rgba(145,191,255,.3)", "background": "rgba(145,191,255,.1)" }}>🏆 #1 MedTech Marketplace in Eastern India</span>
+                  <span className="slide-eyebrow" style={{ "color": "#91BFFF", "borderColor": "rgba(145,191,255,.3)", "background": "rgba(145,191,255,.1)" }}>🏆 #1 MedTech Marketplace in Eastern India</span>
                   <h1 className="slide-h1" style={{ "color": "#fff" }}>Precision Glucose <br /><em>Monitoring Devices</em></h1>
                   <p className="slide-p" style={{ "color": "rgba(255,255,255,.8)" }}>Glucometers, continuous glucose monitors, test strips and lancets — from Roche, Accu-Chek, Abbott, One Touch &amp; more. ICMR-approved. Clinically accurate.</p>
                   <div className="slide-btns">
-                    <button className="btn btn-white btn-lg" style={{ "border-radius": "12px" }}>Shop Glucometers</button>
-                    <button className="btn btn-outline btn-lg" style={{ "border-color": "rgba(255,255,255,.4)", "color": "#fff", "border-radius": "12px" }}>View All Devices</button>
+                    <button className="btn btn-white btn-lg" style={{ "borderRadius": "12px" }}>Shop Glucometers</button>
+                    <button className="btn btn-outline btn-lg" style={{ "borderColor": "rgba(255,255,255,.4)", "color": "#fff", "borderRadius": "12px" }}>View All Devices</button>
                   </div>
                 </div>
                
@@ -73,12 +73,12 @@ export default function Home() {
             <div className="slide-inner">
               <div className="wrap">
                 <div className='sliderinnerbox'>
-                  <span className="slide-eyebrow" style={{ "color": "#6FEBB5", "border-color": "rgba(111,235,181,.3)", "background": "rgba(111,235,181,.1)" }}>🧤 Certified Medical Gloves</span>
+                  <span className="slide-eyebrow" style={{ "color": "#6FEBB5", "borderColor": "rgba(111,235,181,.3)", "background": "rgba(111,235,181,.1)" }}>🧤 Certified Medical Gloves</span>
                   <h1 className="slide-h1" style={{ "color": "#fff" }}>Surgical &amp; Examination <br /><em>Gloves &amp; PPE</em></h1>
                   <p className="slide-p" style={{ "color": "rgba(255,255,255,.8)" }}>Latex, nitrile &amp; vinyl gloves for surgical, examination and industrial use. FDA-cleared, EN 455 certified. Bulk packs for clinics &amp; hospitals.</p>
                   <div className="slide-btns">
-                    <button className="btn btn-lg" style={{ "background": "#fff", "color": "#006640", "border-radius": "12px" }}>Shop Gloves &amp; PPE</button>
-                    <button className="btn btn-outline btn-lg" style={{ "border-color": "rgba(255,255,255,.4)", "color": "#fff", "border-radius": "12px" }}>Bulk Orders</button>
+                    <button className="btn btn-lg" style={{ "background": "#fff", "color": "#006640", "borderRadius": "12px" }}>Shop Gloves &amp; PPE</button>
+                    <button className="btn btn-outline btn-lg" style={{ "borderColor": "rgba(255,255,255,.4)", "color": "#fff", "borderRadius": "12px" }}>Bulk Orders</button>
                   </div>
                 </div>
                 
@@ -95,12 +95,12 @@ export default function Home() {
             <div className="slide-inner">
               <div className="wrap">
                 <div  className='sliderinnerbox'>
-                  <span className="slide-eyebrow" style={{ "color": "#7DD3FC", "border-color": "rgba(125,211,252,.3)", "background": "rgba(125,211,252,.1)" }}>📊 Clinical Grade Equipment</span>
+                  <span className="slide-eyebrow" style={{ "color": "#7DD3FC", "borderColor": "rgba(125,211,252,.3)", "background": "rgba(125,211,252,.1)" }}>📊 Clinical Grade Equipment</span>
                   <h1 className="slide-h1" style={{ "color": "#fff" }}>Advanced Patient <br /><em>Monitoring Systems</em></h1>
                   <p className="slide-p" style={{ "color": "rgba(255,255,255,.8)" }}>Multi-parameter patient monitors, ECG machines, pulse oximeters, BP monitors — hospital-grade from GE, Philips, Mindray &amp; BPL Medical.</p>
                   <div className="slide-btns">
-                    <button className="btn btn-white btn-lg" style={{ "border-radius": "12px" }}>Explore Monitors</button>
-                    <button className="btn btn-outline btn-lg" style={{ "border-color": "rgba(255,255,255,.4)", "color": "#fff", "border-radius": "12px" }}>Hospital Pricing</button>
+                    <button className="btn btn-white btn-lg" style={{ "borderRadius": "12px" }}>Explore Monitors</button>
+                    <button className="btn btn-outline btn-lg" style={{ "borderColor": "rgba(255,255,255,.4)", "color": "#fff", "borderRadius": "12px" }}>Hospital Pricing</button>
                   </div>
                 </div>
                 
@@ -109,10 +109,10 @@ export default function Home() {
           </div>
 
           <button className="hero-arr prev" onClick={() => (window as any).heroSlide(-1)}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6" /></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
           </button>
           <button className="hero-arr next" onClick={() => (window as any).heroSlide(1)}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
           </button>
           <div className="hero-dots" id="heroDots">
             <div className="hero-dot on" onClick={() => (window as any).heroGo(0)}></div>
@@ -439,7 +439,7 @@ export default function Home() {
         <div className="rev-card">
           <div className="rev-stars">★★★★★</div>
           <p className="rev-quote">
-            Genuine products, fair pricing, and fast delivery. We've reduced procurement headaches completely after switching to Precica. Highly recommended for clinics and hospitals.
+            Genuine products, fair pricing, and fast delivery. We&apos;ve reduced procurement headaches completely after switching to Precica. Highly recommended for clinics and hospitals.
           </p>
           <div className="rev-person">
             <div className="rev-av" style={{ background: '#DC2626' }}>PM</div>

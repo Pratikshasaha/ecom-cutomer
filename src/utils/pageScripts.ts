@@ -169,7 +169,7 @@ export const initializePageScripts = () => {
   initStorageListener();
 };
 
-// Export individual functions for global access
+ if (typeof window !== 'undefined') {
 (window as any).addCart = addCart;
 (window as any).toggleCart = toggleCart;
 (window as any).showToast = showToast;
@@ -177,3 +177,4 @@ export const initializePageScripts = () => {
 (window as any).revSlide = revSlide;
 (window as any).heroGo = heroGo;
 (window as any).heroSlide = heroSlide;
+  }

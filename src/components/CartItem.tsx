@@ -36,7 +36,7 @@ export default function CartItem({ item }: CartItemProps) {
       
       <div className="flex-1">
         <h3 className="font-bold text-lg text-gray-900 mb-1">{item.name}</h3>
-        <p className="text-sm text-gray-600 mb-2">{item.details}</p>
+        {/* <p className="text-sm text-gray-600 mb-2">{item.details}</p> */}
         <div className="flex items-center space-x-4">
           <div>
             <p className="text-xs text-gray-500 mb-1">Price</p>

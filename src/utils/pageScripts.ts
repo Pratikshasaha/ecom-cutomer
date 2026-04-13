@@ -32,13 +32,47 @@ const initHeroSlider = () => {
 
 // Cart
 let cc = 0;
-function addCart(btn: HTMLElement, name: string) {
-  cc++;
+const CART_STORAGE_KEY = 'precica_cart';
+
+const loadCartCount = () => {
+  try {
+    const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+    if (savedCart) {
+      const cart = JSON.parse(savedCart);
+      cc = cart.reduce((total: number, item: any) => total + item.quantity, 0);
+      updateCartDisplay();
+    }
+  } catch (error) {
+    console.error('Failed to load cart count:', error);
+  }
+};
+
+const updateCartDisplay = () => {
   const cartPip = document.getElementById('cartPip');
   const mobDot = document.getElementById('mobDot');
-  
   if (cartPip) cartPip.textContent = cc.toString();
-  if (mobDot) mobDot.style.display = 'block';
+  if (mobDot) mobDot.style.display = cc > 0 ? 'block' : 'none';
+};
+
+const syncCartFromStorage = () => {
+  try {
+    const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+    if (savedCart) {
+      const cart = JSON.parse(savedCart);
+      const newCount = cart.reduce((total: number, item: any) => total + item.quantity, 0);
+      if (newCount !== cc) {
+        cc = newCount;
+        updateCartDisplay();
+      }
+    }
+  } catch (error) {
+    console.error('Failed to sync cart count:', error);
+  }
+};
+
+function addCart(btn: HTMLElement, name: string) {
+  cc++;
+  updateCartDisplay();
   
   btn.classList.add('done');
   btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Added!';
@@ -51,6 +85,7 @@ function addCart(btn: HTMLElement, name: string) {
 }
 
 function toggleCart() {
+  syncCartFromStorage();
   showToast(cc === 0 ? 'Your cart is empty — start shopping!' : 'Cart: ' + cc + ' item(s) · Checkout coming soon!');
 }
 
@@ -111,11 +146,27 @@ const initStickyHeader = () => {
   });
 };
 
+// Listen for storage changes (when cart is updated on another tab or through Zustand)
+const initStorageListener = () => {
+  window.addEventListener('storage', (event) => {
+    if (event.key === CART_STORAGE_KEY) {
+      syncCartFromStorage();
+    }
+  });
+  
+  // Also check for cart updates periodically (for same-tab changes)
+  setInterval(() => {
+    syncCartFromStorage();
+  }, 500);
+};
+
 // Initialize all scripts
 export const initializePageScripts = () => {
+  loadCartCount();
   initHeroSlider();
   initFadeUpObserver();
   initStickyHeader();
+  initStorageListener();
 };
 
 // Export individual functions for global access

@@ -3,11 +3,16 @@
 import Link from 'next/link';
 import { useCartStore } from '@/stores/cartStore';
 import { HeartPulse, ShoppingCart, Search, Home, Package, ClipboardList, Menu } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const items = useCartStore((state) => state.items);
+  const loadCart = useCartStore((state) => state.loadCart);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    loadCart();
+  }, [loadCart]);
 
   return (
     <header className="sticky top-0 z-50 bg-white">
@@ -41,9 +46,9 @@ export default function Navbar() {
 
             {/* Search - Hidden on Mobile */}
             <div className="hidden lg:flex items-center flex-1 mx-8 bg-gray-100 border border-gray-200 rounded-lg max-w-2xl overflow-hidden hover:border-[#1251A3] focus-within:border-[#1251A3] transition-all">
-              <input 
-                type="text" 
-                placeholder="Search medicines, tests, health products..." 
+              <input
+                type="text"
+                placeholder="Search medicines, tests, health products..."
                 className="flex-1 bg-transparent px-4 py-3 focus:outline-none text-sm"
               />
               <button className="bg-[#1251A3] text-white px-6 py-3 flex items-center gap-2 hover:bg-[#1a6fd4] transition">
@@ -63,9 +68,15 @@ export default function Navbar() {
                 )}
               </Link>
               <button className="hidden sm:flex items-center gap-2 bg-[#EBF2FF] text-[#1251A3] px-4 py-2 rounded-lg hover:bg-[#1251A3] hover:text-white transition font-600 text-sm">
-                <div className="w-4 h-4">👤</div>
+
                 <span>Login</span>
               </button>
+        
+
+               <Link href="/orders" className="hidden sm:flex items-center gap-2 bg-[#EBF2FF] text-[#1251A3] px-4 py-2 rounded-lg hover:bg-[#1251A3] hover:text-white transition font-600 text-sm text-white bg-blue-600">
+              My  Orders
+            
+              </Link>
             </div>
           </div>
         </div>
@@ -77,22 +88,22 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1 overflow-x-auto flex-1">
               <Link href="/" className="px-4 py-3 text-sm font-500 text-[#4A566D] hover:text-[#1251A3] border-b-2 border-transparent hover:border-[#1251A3] transition whitespace-nowrap">
-                🏥 Medicines
+               All Equipment
               </Link>
               <Link href="/products" className="px-4 py-3 text-sm font-500 text-[#4A566D] hover:text-[#1251A3] border-b-2 border-transparent hover:border-[#1251A3] transition whitespace-nowrap">
-                🛒 Products
+                Products
               </Link>
-              <Link href="/orders" className="px-4 py-3 text-sm font-500 text-[#4A566D] hover:text-[#1251A3] border-b-2 border-transparent hover:border-[#1251A3] transition whitespace-nowrap">
-                📋 Orders
-              </Link>
-              <a href="#" className="px-4 py-3 text-sm font-500 text-[#4A566D] hover:text-[#1251A3] border-b-2 border-transparent hover:border-[#1251A3] transition whitespace-nowrap">
-                🏷️ Offers
-              </a>
+             
+
+                <a href="#" className="nav-lnk"> Glucose Monitors</a>
+                <a href="#" className="nav-lnk"> Gloves &amp; PPE</a>
+                <a href="#" className="nav-lnk"> Cardiac Devices</a>
+                <a href="#" className="nav-lnk"> Lab Equipment</a>
+                <a href="#" className="nav-lnk">Surgical Tools</a>
+                <a href="#" className="nav-lnk"> Patient Monitors</a>
+               
             </div>
-            <button className="hidden md:flex items-center gap-2 ml-auto bg-gradient-to-r from-[#00A86B] to-[#00c47d] text-white px-4 py-2 rounded-lg hover:shadow-lg transition font-600 text-sm">
-              <span>☁️</span>
-              Upload Prescription
-            </button>
+
           </div>
         </div>
       </nav>
